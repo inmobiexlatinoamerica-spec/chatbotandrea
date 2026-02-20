@@ -8,24 +8,24 @@ index.html
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="margin:0; background:white;">
+<body style="margin:0; background:white; height:100vh;">
 
 <script src="https://widget.dapta.ai/dapta_agent_min.js?agentId=ac8c1d91-deca-4acb-a0fb-d58890751662&env="></script>
 
 <script>
-function abrirChat() {
-  if (window.daptaAgent) {
-    window.daptaAgent.open();
-  } else {
-    setTimeout(abrirChat, 500);
-  }
-}
+window.addEventListener("load", function() {
 
-window.onload = function() {
-  setTimeout(abrirChat, 1200);
-};
+  let intervalo = setInterval(function() {
+
+    if (window.daptaAgent && typeof window.daptaAgent.open === "function") {
+      window.daptaAgent.open();
+      clearInterval(intervalo);
+    }
+
+  }, 400);
+
+});
 </script>
 
 </body>
 </html>
-
