@@ -4,7 +4,7 @@ index.html
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Chat InmoBiex</title>
+<title>Chat Andrea</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -13,14 +13,19 @@ index.html
 <script src="https://widget.dapta.ai/dapta_agent_min.js?agentId=ac8c1d91-deca-4acb-a0fb-d58890751662&env="></script>
 
 <script>
+function abrirChat() {
+  if (window.daptaAgent) {
+    window.daptaAgent.open();
+  } else {
+    setTimeout(abrirChat, 500);
+  }
+}
+
 window.onload = function() {
-  setTimeout(function() {
-    if (window.daptaAgent) {
-      window.daptaAgent.open();
-    }
-  }, 1000);
+  setTimeout(abrirChat, 1200);
 };
 </script>
 
 </body>
 </html>
+
